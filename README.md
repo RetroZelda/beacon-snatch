@@ -1,8 +1,8 @@
 # Beacon Snatch
 
-Beacon Snatch is a command-line interface (CLI) tool designed to authenticate, browse, and download video content from the Beacon streaming platform. The CLI offers both direct command execution and an interactive mode for ease of use.
+Beacon Snatch is a library and command-line interface (CLI) tool designed to authenticate, browse, and download video content from the Beacon streaming platform. The CLI offers both direct command execution and an interactive mode for ease of use.
 
-It is also a python library for more advanced usage.
+Beacon Snatch is a project made quickly that uses a headless browser to obtain the video streams to download, so dont expect anything fast or secure.  Use at your own risk.
 
 ## Features
 
