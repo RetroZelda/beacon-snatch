@@ -110,7 +110,7 @@ class BeaconSnatchCLI:
         if content_info:
             print(f"\tid:\n\t\t{content_info.slug}") # display the slug as the id because whatever
             print(f"\ttitle:\n\t\t{content_info.title}")
-            print(f"\tdescription:\n\t\t{re.sub(r'\n', '\n\t\t', content_info.description)}")
+            print(f"\tdescription:\n\t\t{re.sub('\n', '\n\t\t', content_info.description)}")
             print(f"\tduration:\n\t\t{content_info.duration}")
             #print(f"\tslug:\n\t\t{content_info.slug}")
             print(f"\tpublishedDate:\n\t\t{content_info.publishedDate}")
