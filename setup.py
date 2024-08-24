@@ -6,14 +6,14 @@ def parse_requirements(filename):
         return req_file.read().splitlines()
     
 setup(
-    name="beacon_snatch",
-    version="0.1.3",
+    name="beacon-snatch",
+    version="0.1.4",
     author="RetroZelda",
     author_email="retrozelda@gmail.com",
     description="Snatch from Beacon",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/retrozelda/beacon_snatch",
+    url="https://github.com/retrozelda/beacon-snatch",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
