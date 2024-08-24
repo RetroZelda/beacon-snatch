@@ -17,10 +17,16 @@ Beacon Snatch is a project made quickly that uses a headless browser to obtain t
 To install Beacon Snatch, first clone the repository and then install it using `pip`:
 
 ```bash
-git clone https://github.com/retrozelda/beacon_snatch.git
-cd beacon_snatch
+git clone https://github.com/retrozelda/beacon-snatch.git
+cd beacon-snatch
 pip install .
 ```
+
+or simply
+```
+pip install beacon-snatch
+```
+
 This will install the required dependencies listed in the dependencies file and make the CLI accessible via the `beacon-snatch` command.
 
 ## CLI Usage
