@@ -71,7 +71,7 @@ class BeaconContent:
             return None
 
         if "video" not in content_block["contentType"]:
-            logging.warn(f"Skipping non-video content \"{ content_block["contentType"] }\" for Content \"{content_id}\"")
+            logging.warn(f"Skipping non-video content \"{ content_block['contentType'] }\" for Content \"{content_id}\"")
             return None
 
         content_video_block = content_block["contentVideo"]
