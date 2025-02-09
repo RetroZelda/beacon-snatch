@@ -95,7 +95,8 @@ class BeaconSeries:
             new_series.description  = description
             new_series.series_url   = url
             
-            new_series.fetch(auth)
+            if auto_fetch:
+                new_series.fetch(auth)
 
         except:
             logging.warn(f"Unable to create series \"{series_id}\".")
