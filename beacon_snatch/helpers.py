@@ -5,6 +5,7 @@ import logging
 import time
 import re
 
+from tqdm import tqdm
 import progressbar
 
 LOG_VERBOSE = 15
@@ -84,5 +85,39 @@ def run_ffmpeg_with_progress(command, progress_header: str = "Processing"):
 
     if progress_bar:
         progress_bar.finish()
+
+    logging.log(helpers.LOG_VERBOSE, f"Completed in {format_duration(time.time() - start_time)}")
+
+def run_ffmpeg_with_tqdm(command, progress_header: str = "Processing"):
+    logging.log(helpers.LOG_VERBOSE, f"Executing ffmpeg")
+    logging.debug(f'{" ".join(command)}')
+
+    try:
+        process = subprocess.Popen(command, stderr=subprocess.PIPE, universal_newlines=True)
+    except Exception as e:
+        logging.error(f"Failed to start ffmpeg: {e}")
+        return
+
+    duration = None
+    progress_bar = None
+    start_time = time.time()
+
+    for line in process.stderr:
+        if duration is None:
+            duration = parse_ffmpeg_duration(line)
+            if duration:
+                progress_bar = tqdm(desc=progress_header, total=duration, unit='s', unit_scale=True)
+
+        if progress_bar and duration:
+            current_time = parse_ffmpeg_time(line)
+            if current_time:
+                if current_time > duration:
+                    current_time = duration
+                progress_bar.update(current_time)
+
+    process.wait()
+
+    if progress_bar:
+        progress_bar = None
 
     logging.log(helpers.LOG_VERBOSE, f"Completed in {format_duration(time.time() - start_time)}")
