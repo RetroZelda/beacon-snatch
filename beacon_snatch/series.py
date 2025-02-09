@@ -103,7 +103,7 @@ class BeaconSeries:
         return new_series
 
     # fetches all the content for this series
-    def fetch(self, auth : BeaconAuthentication):
+    def fetch(self, auth : BeaconAuthentication, max_pages = -1):
 
         driver = auth.get_driver()        
         driver.get(self.series_url)
@@ -119,8 +119,12 @@ class BeaconSeries:
                 
                 logging.log(helpers.LOG_VERBOSE, f"\"Load More\" click #{click_count}")
                 click_count = click_count + 1
-                load_more_button.click()
-                time.sleep(1)
+
+                if max_pages < 0 or click_count < max_pages:
+                    load_more_button.click()
+                    time.sleep(1)
+                else:
+                    break
             except ElementClickInterceptedException: # clicking too fast or while its loading will throw this, so we will just try again
                 continue
             except NoSuchElementException: # I hate python
