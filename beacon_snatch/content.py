@@ -147,4 +147,4 @@ class BeaconContent:
         logging.log(helpers.LOG_VERBOSE, f"Starting download for {self.title}...")        
         helpers.run_ffmpeg_with_progress(command=command, progress_header=f"Downloading \"{self.title}\"")
         logging.log(helpers.LOG_VERBOSE, f"Download saved at '{output_path}'")    
-
+        return output_path
