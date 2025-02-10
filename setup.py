@@ -7,7 +7,7 @@ def parse_requirements(filename):
     
 setup(
     name="beacon-snatch",
-    version="0.1.6",
+    version="0.1.7",
     author="RetroZelda",
     author_email="retrozelda@gmail.com",
     description="Snatch from Beacon",
