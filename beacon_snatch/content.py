@@ -86,7 +86,7 @@ class BeaconContent:
             new_content.duration            = content_block["duration"]
             new_content.slug                = content_block["slug"]
             new_content.publishedDate       = content_block["publishedAt"]
-            new_content.primaryCollection   = content_block["primaryCollection"]["__ref"]
+            # new_content.primaryCollection   = content_block["primaryCollection"]["__ref"] # sometimes crashes but we dont need it so it can remain commented out
             new_content.m3u8_url            = content_video_block["video"]["video"]
             new_content.closedCaptions      = content_video_block["video"]["closedCaptions"]
             

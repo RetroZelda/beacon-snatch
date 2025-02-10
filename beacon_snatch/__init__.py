@@ -4,12 +4,14 @@ import logging
 from . import helpers
 from .series import BeaconSeries
 from .content import BeaconContent
+from .collection import BeaconCollection
 from .stream import BeaconStreamInfo
 from .authentication import BeaconAuthentication
 
 
 __all__ = ["BeaconSeries", 
            "BeaconContent", 
+           "BeaconCollection", 
            "BeaconStreamInfo", 
            "BeaconAuthentication"] 
 
