@@ -46,7 +46,7 @@ class BeaconSnatchCLI:
 
         series_info = self.series_info_cache.get(series_id)
         if not series_info:
-            series_info = BeaconSeries.create(self.auth, series_id)
+            series_info = BeaconSeries.create(self.auth, series_id, True)
             if series_info is not None:
                 self.series_info_cache[series_id] = series_info
 
@@ -67,7 +67,7 @@ class BeaconSnatchCLI:
 
         series_info = self.series_info_cache.get(series_id)
         if not series_info:
-            series_info = BeaconSeries.create(self.auth, series_id)
+            series_info = BeaconSeries.create(self.auth, series_id, True)
             if series_info is not None:
                 self.series_info_cache[series_id] = series_info
 
@@ -85,7 +85,7 @@ class BeaconSnatchCLI:
         logging.info(f"Downloading series {series_id}...")
         series_info = self.series_info_cache.get(series_id)
         if not series_info:
-            series_info = BeaconSeries.create(self.auth, series_id)
+            series_info = BeaconSeries.create(self.auth, series_id, True)
             if series_info is not None:
                 self.series_info_cache[series_id] = series_info
 
